@@ -21,21 +21,6 @@ program
 
 const l = .01;
 
-const data = {
-	vertices: [
-		l, 0., 0,
-		0., l, 0.,
-		0., 0., 0.,
-		l, l, 0.
-	],
-	indexes: [
-		1,
-		2,
-		3,
-		0
-	]
-}
-
 // const data = {
 // 	vertices: [
 // 		l, 0., 0,
@@ -47,11 +32,26 @@ const data = {
 // 		1,
 // 		2,
 // 		3,
-// 		2,
-// 		0,
-// 		3
+// 		0
 // 	]
 // }
+
+const data = {
+	vertices: [
+		l, 0., 0,
+		0., l, 0.,
+		0., 0., 0.,
+		l, l, 0.
+	],
+	indexes: [
+		1,
+		2,
+		3,
+		2,
+		0,
+		3
+	]
+}
 
 
 spinner.start();
