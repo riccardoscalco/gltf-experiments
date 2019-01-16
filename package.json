@@ -1,0 +1,16 @@
+{
+  "name": "gltfsketches",
+  "version": "1.0.0",
+  "description": "",
+  "main": "create-buffers.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "btoa-lite": "^1.0.0",
+    "commander": "^2.19.0",
+    "ora": "^3.0.0"
+  }
+}
