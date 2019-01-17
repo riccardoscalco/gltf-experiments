@@ -1,16 +1,19 @@
 {
-  "name": "gltfsketches",
-  "version": "1.0.0",
-  "description": "",
-  "main": "create-buffers.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "btoa-lite": "^1.0.0",
-    "commander": "^2.19.0",
-    "ora": "^3.0.0"
-  }
+	"name": "gltf-experiments",
+	"version": "1.0.0",
+	"description": "Some experiments with the glTF format.",
+	"license": "MIT",
+	"repository": "riccardoscalco/gltf-experiments",
+	"author": {
+		"name": "Riccardo Scalco",
+		"email": "riccardoscalco@gmail.com",
+		"url": "https://riccardoscalco.it/"
+	},
+	"keywords": [
+		"glTF",
+		"binary",
+		"node",
+		"openGL"
+	],
+	"dependencies": {}
 }
