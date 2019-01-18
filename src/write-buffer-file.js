@@ -15,8 +15,8 @@ module.exports = function (data) {
 	console.log(paddingBytes);
 	const byteLength = indexesBytes + paddingBytes + verticesBytes;
 
-	let buf = new ArrayBuffer(byteLength);
-	let dat = new DataView(buf, 0, byteLength);
+	const buf = new ArrayBuffer(byteLength);
+	const dat = new DataView(buf, 0, byteLength);
 
 	for (let i = 0; i < indexesBytes; i+= UNSIGNED_SHORT_BYTES) {
 		dat.setUint16(i, indexes[i / UNSIGNED_SHORT_BYTES], true);
@@ -26,12 +26,8 @@ module.exports = function (data) {
 		dat.setFloat32(j, vertices[(j - indexesBytes - paddingBytes) / FLOAT_BYTES], true);
 	}
 
-	// Base64 string on browser
-	// const decoded = String.fromCharCode(...new Uint8Array(buf));
-	// const b64 = btoa(decoded);
-
-	// Base64 string on node
-	// const b64 = Buffer.from(buf).toString('base64');
+	// const dataURI = `data:application/gltf-buffer;base64,${Buffer.from(buf).toString('base64')}`;
+	// console.log(dataURI);
 
 	fs.writeFile('buffer.bin', Buffer.from(buf), 'binary', function(err) {
 		if(err) {
@@ -42,6 +38,4 @@ module.exports = function (data) {
 			console.log('Actual byte length:', Buffer.byteLength(buf));
 		}
 	});
-
-	// return `data:application/gltf-buffer;base64,${b64}`;
 }
