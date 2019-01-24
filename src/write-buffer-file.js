@@ -6,6 +6,8 @@ module.exports = function (data) {
 		vertices
 	} = data;
 
+	const minMAx = getMinMax(vertices);
+
 	const UNSIGNED_SHORT_BYTES = 2;
 	const FLOAT_BYTES = 4;
 	const verticesBytes = vertices.length * FLOAT_BYTES;
@@ -36,6 +38,20 @@ module.exports = function (data) {
 			console.log('Saved binary file buffer.bin');
 			console.log('Expected byte length:', byteLength);
 			console.log('Actual byte length:', Buffer.byteLength(buf));
+			console.log('Max values:', minMAx.max);
+			console.log('Min values:', minMAx.min);
 		}
+	});
+}
+
+function getMinMax (vertices) {
+	return vertices.reduce((p, c, i) => {
+		const index = i % 3;
+		p.min[index] = Math.min(p.min[index], c);
+		p.max[index] = Math.max(p.max[index], c);
+		return p;
+	}, {
+		min: [Infinity, Infinity, Infinity],
+		max: [-Infinity, -Infinity, -Infinity]
 	});
 }
