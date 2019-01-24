@@ -1,6 +1,13 @@
 const fs = require('fs');
 
-module.exports = function (data) {
+module.exports = writeBufferFile;
+
+function writeBufferFile (data) {
+	const buffer = createBuffer(data);
+	writeFile(buffer);
+}
+
+function createBuffer(data) {
 	const {
 		indexes,
 		vertices
@@ -31,15 +38,20 @@ module.exports = function (data) {
 	// const dataURI = `data:application/gltf-buffer;base64,${Buffer.from(buf).toString('base64')}`;
 	// console.log(dataURI);
 
+	console.log('Expected byte length:', byteLength);
+	console.log('Actual byte length:', Buffer.byteLength(buf));
+	console.log('Max values:', minMAx.max);
+	console.log('Min values:', minMAx.min);
+
+	return buf;
+}
+
+function writeFile (buf) {
 	fs.writeFile('buffer.bin', Buffer.from(buf), 'binary', function(err) {
 		if(err) {
 			console.log(err);
 		} else {
 			console.log('Saved binary file buffer.bin');
-			console.log('Expected byte length:', byteLength);
-			console.log('Actual byte length:', Buffer.byteLength(buf));
-			console.log('Max values:', minMAx.max);
-			console.log('Min values:', minMAx.min);
 		}
 	});
 }

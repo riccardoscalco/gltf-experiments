@@ -15,5 +15,7 @@
 		"node",
 		"openGL"
 	],
-	"dependencies": {}
+	"dependencies": {
+		"write-json-file": "^3.0.2"
+	}
 }
