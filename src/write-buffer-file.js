@@ -21,7 +21,6 @@ function createBuffer(data) {
 	const indexesBytes = indexes.length * UNSIGNED_SHORT_BYTES;
 	const remainder = indexesBytes % FLOAT_BYTES
 	const paddingBytes = remainder ? FLOAT_BYTES - remainder : 0;
-	console.log(paddingBytes);
 	const byteLength = indexesBytes + paddingBytes + verticesBytes;
 
 	const buf = new ArrayBuffer(byteLength);
